@@ -35,7 +35,7 @@ byte brightness = 0;
 long t_leds_previous = 0;
 byte t_leds_delay = 10;
 
-long t_timemout_previous = 0;
+long t_timeout_previous = 0;
 bool timeout = 0;
 int t_timeout = 10000;
 
@@ -67,7 +67,7 @@ void loop() {
   if(allowsending) {
 	  
     sender();
-    t_timemout_previous = millis();
+    t_timeout_previous = millis();
     timeout = 0;
     leds_step = 2;
 	
@@ -257,7 +257,7 @@ void sender() {
 
 void light() {
 	  
-  if(millis() - t_timemout_previous >= t_timeout) {
+  if(millis() - t_timeout_previous >= t_timeout) {
     
 	if(!timeout) {
 		
